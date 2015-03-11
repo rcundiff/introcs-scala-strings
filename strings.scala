@@ -2,21 +2,11 @@ import scala.math.min
 
 object strings  {
 
-   def main (args: Array[String]) {
-       println("Please enter a sentence:")
-       
+   def getlength (args: Array[String]) {
        var sentence = Console.readLine
-       println(s"You typed in '$sentence'")
-        
        var numberofcharacters = sentence.length
        println(s"This sentence is $numberofcharacters characters in length.")
        
-       getSentenceType(sentence)
-       
-       println("Please enter a name:")
-       var name = Console.readLine
-       
-       getFormattedName(name)
    }
 
 
