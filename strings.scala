@@ -2,46 +2,48 @@ import scala.math.min
 
 object strings  {
 
-/*
-
-   Write a function that accepts a sentence (string), and returns whether
-   it represents a *declarative* sentence (i.e. ending in a period),
-   *interrogatory* sentence (ending in a question mark), or an
-   *exclamation* (ending in exclamation point) or is not a sentence
-   (anything else).
-
-   This may be the first time you write a conditional
-   statement. (This needs the next chapter.)
-   It makes sense to only make small changes at once and build
-   up to final code. First you might just code it to check if a sentence is
-   declarative or not. Then remember you can test further cases with
-   ``else if (...)``.
-
-   The function should return the string "interrogative", "declarative", or
-   "exclamatory" for ?, ., or !; otherwise, it should return "unknown".
- */
+   def main (args: Array[String]) {
+       println("Please enter a sentence:")
+       
+       var sentence = Console.readLine
+       println(s"You typed in '$sentence'")
+        
+       var numberofcharacters = sentence.length
+       println(s"This sentence is $numberofcharacters characters in length.")
+       
+       getSentenceType(sentence)
+       
+       println("Please enter a name:")
+       var name = Console.readLine
+       
+       getFormattedName(name)
+   }
 
 
    def getSentenceType(sentence : String) : String = {
-     
-      "unknown"
+       
+       if (sentence.endsWith("?"))  
+            "interrogative" 
+       else if (sentence.endsWith("."))  
+            "declarative"
+       else if (sentence.endsWith("!"))  
+            "exclamatory"
+       else 
+            "unknown"
+        
    }
-
-/*
-   Given a name as input.  Assume first and last names
-   are separated by a space (no middle name).
-   Print last name first followed by a comma
-   and a space, followed by the first name.
-   For example, if the input is
-   ``"Marcel Proust"``, the output is ``"Proust, Marcel"``.
-
-   If the name doesn't have any spaces in it (i.e. it is a single
-   name, e.g. Madonna, return the name as is.
- */
 
    def getFormattedName(name : String) : String = {
      
-      "name not calculated yet"
+       var toremove = ",".toSet
+       var removed = name.filterNot(toremove)
+       if(removed.contains(" ")) {
+           val derp = removed.split(" ")
+           derp(1) + ", " + derp(0)
+       }
+       else {
+           removed
+       }
    }
 
 }
