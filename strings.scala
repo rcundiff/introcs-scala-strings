@@ -5,7 +5,7 @@ object strings  {
    def getlength (args: Array[String]) {
        var sentence = Console.readLine
        var numberofcharacters = sentence.length
-       println(s"This sentence is $numberofcharacters characters in length.")
+       numberofcharacters
        
    }
 
