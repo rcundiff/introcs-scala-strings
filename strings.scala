@@ -24,16 +24,20 @@ object strings  {
    }
 
    def getFormattedName(name : String) : String = {
-     
-       var toremove = ",".toSet
-       var removed = name.filterNot(toremove)
-       if(removed.contains(" ")) {
-           val derp = removed.split(" ")
-           derp(1) + ", " + derp(0)
+       
+       var ar = name.split("\\s+")
+       //var indexing = Array (ar.size-1)
+       var str = ""
+       
+       if (ar.size == 1)
+            return name
+           
+       for (a <- 0 to ar.size - 2) {
+        str += " " + ar(a)
        }
-       else {
-           removed
-       }
+       return ar.last + "," + str 
+       
    }
-
+    
+   
 }
